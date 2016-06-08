@@ -13,13 +13,21 @@ public class PublishableNews {
 	private final List<String> subscribentContent = new ArrayList<>();
 
 	public void addPublicInfo(String content) {
-		this.publicContent .add(content);
+		this.getPublicContent() .add(content);
 		
 	}
 
 	public void addForSubscription(String content, SubsciptionType subscriptionType) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public List<String> getSubscribentContent() {
+		return subscribentContent;
+	}
+
+	public List<String> getPublicContent() {
+		return publicContent;
 	}
 
 }
