@@ -62,4 +62,20 @@ public class TestLoadNews {
 		Assert.assertEquals(news.getPublicContent().size(), 2);
 	}
 	
+	@Test
+	public void subscribersNewsTest()
+	{
+		IncomingNews incomingNews = new IncomingNews();
+		incomingNews.add(new IncomingInfo("type a",SubsciptionType.A));
+		incomingNews.add(new IncomingInfo("type b",SubsciptionType.C));
+		incomingNews.add(new IncomingInfo("type c",SubsciptionType.B));
+		
+		
+		
+		when(reader.read()).thenReturn(incomingNews);
+		
+		PublishableNews news = loader.loadNews();
+		Assert.assertEquals(news.getSubscribentContent().size(), 2);
+	}
+	
 }
