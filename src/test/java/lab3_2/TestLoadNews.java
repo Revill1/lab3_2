@@ -70,12 +70,17 @@ public class TestLoadNews {
 		incomingNews.add(new IncomingInfo("type b",SubsciptionType.C));
 		incomingNews.add(new IncomingInfo("type c",SubsciptionType.B));
 		
-		
-		
 		when(reader.read()).thenReturn(incomingNews);
 		
 		PublishableNews news = loader.loadNews();
-		Assert.assertEquals(news.getSubscribentContent().size(), 2);
+		Assert.assertEquals(news.getSubscribentContent().size(), 3);
+	}
+	
+	@Test
+	public void behaviourTest()
+	{
+		loader.loadNews();
+		Mockito.verify(reader, Mockito.times(1)).read();
 	}
 	
 }
